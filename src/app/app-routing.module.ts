@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: AppComponent,
+    loadChildren: () => import('./autobahn/autobahn.module').then(m => m.AutobahnModule),
     data: { breadcrumb: 'Home' },
   },
 ];
@@ -19,4 +20,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

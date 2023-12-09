@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AutobahnState } from '../states/autobahn.state';
+import { AutobahnData } from '../models/autobahn.models';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class AutobahnService {
   }
 
   // Example method to get data
-  getAutobahnData(): Observable<any> {
+  getAutobahnData(): Observable<AutobahnData> {
     return this.http.get<any>(`${this.apiUrl}`);
   }
 }

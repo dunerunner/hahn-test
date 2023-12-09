@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { autobahnReducer } from './store/reducers/autobahn.reducer';
 import { AutobahnEffects } from './store/effects/autobahn.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot({
       autobahn: autobahnReducer
     }), // Add your reducer here
-    EffectsModule.forRoot([AutobahnEffects]), // Add your effects here
+    EffectsModule.forRoot([AutobahnEffects]), BrowserAnimationsModule, MatCardModule, // Add your effects here
   ],
   providers: [],
   bootstrap: [AppComponent]

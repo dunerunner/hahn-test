@@ -1,0 +1,26 @@
+<div *ngIf="(loading$ | async); else loadedContent">
+  <p>Loading...</p>
+</div>
+
+<ng-template #loadedContent>
+  <div *ngIf="(error$ | async); else noError">
+    <p>Error: {{ error$ | async }}</p>
+  </div>
+
+  <ng-template #noError>
+    <div *ngIf="(autobahnData$ | async); else noData">
+      <mat-form-field>
+        <mat-label>Select road</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let road of (autobahnData$ | async)?.roads" [value]="road">
+            {{ road }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <ng-template #noData>
+      <p>No data available.</p>
+    </ng-template>
+  </ng-template>
+</ng-template>
